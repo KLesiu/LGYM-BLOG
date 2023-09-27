@@ -73,9 +73,14 @@ const PostDetail = (props)=>{
         }).then(function(res){
            
             return res.json()
+        }).catch(function(res){
+            alert('You have to be logged in to add comments')
+            return res
         })
-      
-       window.location.reload(true)
+      if(response.ok){
+        window.location.reload(true)
+      }
+       
         
     }
     const isAdmin=async()=>{

@@ -61,7 +61,10 @@ const Blog =(props)=>{
     return(
         <div id="welcome">
             <h2>Welcome in our world!</h2>
-            <button onClick={getPosts}>SEE POSTS</button>
+            <button onClick={getPosts}>Zobacz posty</button>
+            <p>"Trenując bicepsy, wyobrażam sobie wysokie góry. Dzięki swojej wyobraźni przekonałem się, że potrafię wszystko, kiedy tylko mocno, bardzo mocno tego chcę i wierzę, że to osiągnę".
+                <br/>
+                (Arnold Schwarzenegger)  </p>
         </div>
         )
     }
@@ -73,7 +76,7 @@ const Blog =(props)=>{
                         return (
                             <a href={`/blog/${element._id}`} className="postCard"><div  key={uniqid()}>
                             <h3>{element.title}</h3>
-                            <p>{element.body}</p>
+                            
                             <p>Created: {element.createdAt}</p>
                             <p>Last update: {element.updatedAt}</p>
                         </div></a>  
