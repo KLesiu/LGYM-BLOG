@@ -1,0 +1,386 @@
+body{
+ 
+  background-color: rgb(0, 0, 0);
+ 
+ min-height: 100vh;
+ font-family: 'Ysabeau Office', sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+}
+header{
+  background: url("components/img/wallpaper2.jpg");
+  background-repeat: no-repeat;
+  background-position:right;
+  background-size: cover;
+  display: flex;
+  height: 35vh;
+  justify-content: center;
+  width: 100%;
+}
+header h1{
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.267);
+  color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  font-family: 'Dela Gothic One', cursive;
+  height: 30%;
+  font-size: 70px;
+  font-weight: 700;
+  text-shadow: 3px 4px 1px rgba(0, 0, 0, 1);
+  width: 100%;
+}
+.preloadContainer,form{
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.514);
+  display: flex;
+  justify-content: center;
+  height: 80vh;
+  width: 100vw;
+}
+.preloadContainer button{
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.685);
+  border-radius: 15px;
+  border: none;
+  color: whitesmoke;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  font-weight: 700;
+  height: 100%;
+  
+  width: 100%;
+ 
+
+ }
+.preloadContainer button:hover{
+  background-color: rgba(0, 0, 0, 0.747);
+}
+.preloadContainer a{
+  
+  height: 20%;
+  margin-top: 8%;
+  text-decoration: none;
+  width: 30%;
+}
+form{
+  flex-direction: column;
+  font-family: 'Ysabeau Office', sans-serif;
+}
+form label{
+  background-color: rgba(255, 255, 255, 0.815);
+  border-radius: 20px;
+  color: black;
+  font-size: 40px;
+  height: 10%;
+  text-align: center;
+  margin-top: 20px;
+  width: 40%;
+}
+form input{
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  color: black;
+  height: 10%;
+  
+  font-size: 30px;
+  margin-top: 20px;
+  width: 40%;
+}
+form button{
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  color:black;
+  cursor: pointer;
+  height: 10%;
+  font-size: 50px;
+  font-family: 'Ysabeau Office', sans-serif;
+  margin-top: 20px;
+  width: 30%;
+}
+form button:hover{
+  background-color: rgba(255, 255, 255, 0.548);
+  
+}
+#registerErrors{
+  background-color: rgba(255, 255, 255, 0.527);
+  border-radius: 20px;
+  color: rgb(136, 3, 3);
+  font-size: 40px;
+  position: absolute;
+  right: 5%;
+  text-align: center;
+  width: 20%;
+}
+#welcome{
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.664);
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  position: absolute;
+  justify-content: center;
+  top: 0;
+  width: 100%;
+}
+#welcome h2{
+  color: white;
+  font-size: 80px;
+  font-weight: 700;
+}
+#welcome button{
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 90px;
+  font-weight: 700;
+  font-family: 'Ysabeau Office', sans-serif;
+  height: 30%;
+  width: 50%;
+}
+#welcome button:hover{
+  background-color: rgba(21, 47, 192, 0.63);
+  color: white;
+}
+#postCardsContainer{
+  background-color: rgba(0, 0, 0, 0.514);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  min-height: 80vh;
+  width: 100%;
+}
+.postCard{
+  background-color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 10px;
+  height: 10%;
+  padding: 10px;
+}
+.postCard:hover{
+  background-color: whitesmoke;
+}
+a{
+  color: black;
+  text-decoration: none;
+}
+.detailContainer{
+  background-color: rgba(0, 0, 0, 0.514);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 80vh;
+  width: 100%;
+}
+.detailBox{
+  align-items: flex-start;
+  background-color: rgba(255, 255, 255, 0.959);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 80%;
+}
+.detailBox h2{
+  font-size: 40px;
+  align-self: center;
+}
+.commentsBox{
+  background-color: rgba(255, 255, 255, 0.959); 
+  border-radius: 20px;
+  position: relative;
+  margin-top: 30px;
+  padding: 20px;
+  width: 80%;
+}
+.commentsBox h2{
+  border-bottom: 2px solid black;
+  font-size: 30px;
+}
+.addComment{
+  align-items: center;
+  background-color: rgb(166, 209, 166);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  height: 15%;
+  font-size: 20px;
+  font-family: 'Ysabeau Office', sans-serif;
+  padding: 5px;
+  position: absolute;
+  right: 5%;
+  top: 6%;
+  
+}
+.addComment:hover{
+  background-color: rgb(67, 175, 67);
+}
+li{
+  list-style-type: none;
+}
+.addCommentContainer{
+  display: flex;
+
+}
+.addCommentContainer button{
+  background-color: rgb(149, 214, 184);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  
+  margin-left: 10px;
+  width: 6%;
+}
+.addCommentContainer button:hover{
+  background-color: rgb(27, 211, 119);
+}
+header div{
+  position: absolute;
+  right: 0;
+}
+header div a button{
+  background-color: rgb(211, 211, 211);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  height: 30px;
+  width: 80px;
+}
+header div a button:hover{
+  background-color: rgb(175, 175, 175);
+}
+.logoutDiv{
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  width: 30%;
+
+}
+.logoutDiv button{
+
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  height: 60px;
+  font-size: 20px;
+  width: 30%;
+}
+.logoutDiv button:hover{
+  background-color: rgba(182, 182, 182, 0.61);
+}
+.logoutDiv h3{
+  background-color: white;
+  border-radius: 10px;
+  font-size: 25px;
+  padding: 10px;
+}
+#commentsHolder{
+  display: flex;
+  flex-direction: column;
+}
+.comment{
+  display: flex;
+  justify-content: flex-start;
+  height: 70px;
+  flex-direction: column;
+  
+}
+.comment h3,p{
+  margin: 0;
+}
+.comment p{
+  border-top: 1px solid black;
+  width: 50%;
+}
+.deleteButton{
+  background-color: rgb(180, 93, 93);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  position: absolute;
+  right: 15%;
+  padding: 5px;
+  width: 5%;
+}
+.deleteButton:hover{
+  background-color: rgb(235, 0, 0);
+}
+
+.hidden{
+  display: none;
+}
+
+@media screen and (max-width:600px) {
+  header h1 {
+    text-align: center;
+}
+.preloadContainer a {
+  height: 14%;
+  margin-top: 14%;
+  width: 100%;
+}
+form label {
+
+ 
+
+  font-size: 24px;
+  height: 7%;
+  
+  margin-top: 20px;
+  width: 70%;
+}
+form input {
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  color: black;
+  height: 7%;
+  font-size: 20px;
+  margin-top: 20px;
+  width: 70%;
+}
+form button{
+  font-size: 25px;
+  width: 70%;
+}
+#registerErrors{
+  top: 15%;
+  font-size: 20px;
+  width: 25%;
+}
+#welcome h2{
+  font-size: 38px;
+  text-align: center;
+}
+#welcome button{
+  font-size: 50px;
+}
+#postCardsContainer{
+  justify-content: center;
+}
+.deleteButton{
+  right: 8%;
+  width: 25%;
+}
+.addComment {
+ border-radius: 10px;
+  height: 36px;
+  font-size: 20px;
+
+  padding: 0;
+  right: 4%;
+  top: 2%;
+  width: 40%;
+}
+.addCommentContainer button{
+  width: 30%;
+}
+}
