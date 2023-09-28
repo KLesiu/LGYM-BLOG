@@ -98,12 +98,17 @@ const Blog =(props)=>{
                 <div id="postCardsContainer">
                     {adminPosts.map((element)=>{
                         return (
-                            <a href={`/blog/${element._id}`} className="postCard"><div  key={uniqid()}>
+                            <a href={`/blog/${element._id}`} className="postCard"><div className="infoCard"  key={uniqid()}>
                             <h3>{element.title}</h3>
-                            <p>{element.body}</p>
+                            
                             <p>Created: {element.createdAt}</p>
                             <p>Last update: {element.updatedAt}</p>
-                        </div></a>  
+                            <p className="cardBody">{element.body}</p>
+                            
+                        </div><div className="photoHolder">
+                      
+
+                            </div></a>  
                         )
                     })}
                 </div>
