@@ -62,9 +62,18 @@ const Blog =(props)=>{
         <div id="welcome">
             <h2>Welcome in our world!</h2>
             <button onClick={getPosts}>Zobacz posty</button>
-            <p>"Trenując bicepsy, wyobrażam sobie wysokie góry. Dzięki swojej wyobraźni przekonałem się, że potrafię wszystko, kiedy tylko mocno, bardzo mocno tego chcę i wierzę, że to osiągnę".
+            <span><p>"Trenując bicepsy, wyobrażam sobie wysokie góry. Dzięki swojej wyobraźni przekonałem się, że potrafię wszystko, kiedy tylko mocno, bardzo mocno tego chcę i wierzę, że to osiągnę".
                 <br/>
-                (Arnold Schwarzenegger)  </p>
+                </p>
+            <p>"Dla zdrowia najlepszymi aktywnościami są „pompowanie mięśni” i dźwiganie ciężarów"
+                <br/>
+               
+            </p>
+            <p>"Sądzę że w przyszłości zaskoczę wszystkich ludzi, tym co będę robił"
+                <br/>
+                (Arnold Schwarzenegger)
+            </p></span>
+            
         </div>
         )
     }

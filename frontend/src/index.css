@@ -6,7 +6,7 @@ body{
  font-family: 'Ysabeau Office', sans-serif;
   margin: 0;
   padding: 0;
-  width: 100vw;
+  width: 99vw;
 }
 header{
   background: url("components/img/wallpaper2.jpg");
@@ -36,7 +36,7 @@ header h1{
   display: flex;
   justify-content: center;
   height: 80vh;
-  width: 100vw;
+  width: 100%;
 }
 .preloadContainer button{
   align-items: center;
@@ -126,7 +126,7 @@ form button:hover{
   height: 100vh;
   flex-direction: column;
   position: absolute;
-  justify-content: center;
+  justify-content: space-between;
   top: 0;
   
   width: 100%;
@@ -143,13 +143,13 @@ form button:hover{
 }
 #welcome button{
   border-radius: 20px;
-  border: none;
-  background-color: black;
-  color: white;
+  border: 2px solid black;
+  background: rgba(0, 0, 0, 0.295);
+  color: rgb(255, 255, 255);
   cursor: pointer;
   font-family: 'Dela Gothic One', cursive;
   
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 700;
   text-shadow: 3px 4px 1px rgba(0, 0, 0, 1);
   height: 20%;
@@ -159,9 +159,15 @@ form button:hover{
   background-color: rgba(145, 145, 145, 0.63);
   color: rgb(255, 255, 255);
 }
-#welcome p{
+#welcome span{
   margin-left: 50%;
+  margin-bottom: 100px;
+
   width: 20%;
+}
+#welcome span p{
+  font-size: 20px;
+  margin-top: 20px;
 }
 #postCardsContainer{
   background-color: rgba(0, 0, 0, 0.514);
