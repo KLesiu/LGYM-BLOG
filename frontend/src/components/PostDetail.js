@@ -121,7 +121,26 @@ const PostDetail = (props)=>{
         console.log(data))
         window.location.href="http://localhost:3000/blog"
     }   
-    
+    const addPhoto=async(event)=>{
+        event.preventDefault()
+        const form = document.querySelector("#photoForm")
+        const token = localStorage.getItem('token')
+        const formData= new FormData(form)
+    const response = await fetch('http://localhost:3001/api/posts/create/upload',{
+        method:"POST",
+        headers:{
+            "Authorization": `Bearer ${token} `
+        },
+        body:formData
+        
+         
+    }).catch((err)=>{
+        console.log(err)
+    }).then((data)=>{
+        
+        return data.json()
+    }).then(data=>console.log(data))
+    }
     useEffect(()=>{
         getDetail()
         getComments()
@@ -162,9 +181,15 @@ const PostDetail = (props)=>{
     }else{
         return(
             <div className="detailContainer">
+                
                 <div className="detailBox">
                 <h2>{detail.title}</h2>
                 <button onClick={deletePost} className="deleteButton">Delete</button>
+                <form onSubmit={addPhoto} id="photoForm" encType="multipart/form-data">
+                    <input id="file" type="file" name="file"></input>
+                    <input type="text" name="filename"></input>
+                    <input type="submit"></input>
+                </form>
                 <p>Created at: {detail.createdAt};  Last Update: {detail.updatedAt}</p>
                 <p>{detail.body}</p>
                 </div>

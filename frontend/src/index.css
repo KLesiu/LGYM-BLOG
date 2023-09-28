@@ -174,8 +174,10 @@ form button:hover{
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  margin-left: 15%;
+  margin-right: 15%;
   min-height: 80vh;
-  width: 100%;
+  width: 70%;
 }
 .postCard{
   background-color: white;
@@ -184,6 +186,7 @@ form button:hover{
   margin: 10px;
   height: 10%;
   padding: 10px;
+  
 }
 .postCard:hover{
   background-color: whitesmoke;

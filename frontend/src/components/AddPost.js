@@ -98,6 +98,7 @@ const AddPost=(props)=>{
         return window.location.href="http://localhost:3000/blog"
     })
    }
+   
    useEffect(()=>{
     isAdmin()
     if(props.type==='edit'){
@@ -108,15 +109,17 @@ const AddPost=(props)=>{
    if(props.type==='add'){
     if(admin===true){
         return(
-            <form onSubmit={addPost}>
+            <form onSubmit={addPost} >
                 <label htmlFor="title">Title:</label>
                 <input id="title" name="title"></input>
                 <label htmlFor="body">Body:</label>
                 <textarea id="body" name="body"></textarea>
                 <label htmlFor="published">Public:</label>
                 <input placeholder="true/false" id="published" type="text" name="published"></input>
+                <input type="file" name="image"></input>
                 <button>Add Post</button>
             </form>
+            
         )
        }else{
         return(
