@@ -31,7 +31,7 @@ const Header=(props)=>{
             }).then(function(res){
                 
                 return res.json()
-            }).then(function(res){
+            }).catch(err=>err).then(function(res){
                 const admin = res.admin
                 setAdmin(admin)
                 return admin

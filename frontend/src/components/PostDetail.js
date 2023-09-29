@@ -152,6 +152,7 @@ const PostDetail = (props)=>{
             
            
         }).then((data)=>{
+            console.log(data)
             return setAllImage(data.data)
         })
     }
@@ -165,6 +166,7 @@ const PostDetail = (props)=>{
         getComments()
         isAdmin()
         getImage()
+        
     },[])
     if(admin===false){
         return(

@@ -62,7 +62,7 @@ const Blog =(props)=>{
     if(welcome===false){
     return(
         <div id="welcome">
-            <h2>Welcome in our world!</h2>
+            <h2>Witaj w moim świecie!</h2>
             <button onClick={getPosts}>Zobacz posty</button>
             <span><p>"Trenując bicepsy, wyobrażam sobie wysokie góry. Dzięki swojej wyobraźni przekonałem się, że potrafię wszystko, kiedy tylko mocno, bardzo mocno tego chcę i wierzę, że to osiągnę".
                 <br/>
@@ -105,11 +105,12 @@ const Blog =(props)=>{
                             
                             <p>Created: {element.createdAt}</p>
                             <p>Last update: {element.updatedAt}</p>
-                            <p className="cardBody">{element.body}</p>
+                            <p className="cardBody">{element.body.substr(0,400)+"...(czytaj dalej)"}</p>
                             <span className="elementId">{element._id}</span>
                             
                         </div><div className="photoHolder">
-                           <img className="photoHolderImage" src={require(`./uploads/${element.imageSrc}`)}></img>
+                            {element.imageSrc === undefined?"":<img className="photoHolderImage" src={require(`./uploads/${element.imageSrc}`)}></img>}
+                           
 
                             </div></a>  
                         )
