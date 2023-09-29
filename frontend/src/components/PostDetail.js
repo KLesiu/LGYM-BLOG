@@ -9,6 +9,7 @@ const PostDetail = (props)=>{
     const [comments,setComments]=useState([])
     const [showAllComments,setShowAllComments]=useState('')
     const [admin,setAdmin]=useState('')
+    const [image, setImage] = useState(null);
     const [allImage,setAllImage]=useState(null)
     const getDetail = async()=>{
         const res = await fetch(`http://localhost:3001/api/posts/${id}`).then(function(ele){
@@ -125,9 +126,10 @@ const PostDetail = (props)=>{
     const addPhoto=async(event)=>{
         event.preventDefault()
         const post = id
-        const form = document.querySelector("#photoForm")
+        
         const token = localStorage.getItem('token')
-        const formData= new FormData(form)
+        const formData= new FormData()
+        formData.append("file",image)
     const response = await fetch(`http://localhost:3001/api/posts/${post}/upload`,{
         method:"POST",
         headers:{
@@ -153,6 +155,11 @@ const PostDetail = (props)=>{
             return setAllImage(data.data)
         })
     }
+    const onInputChange = (e) => {
+        
+        setImage(e.target.files[0]);
+      };
+   
     useEffect(()=>{
         getDetail()
         getComments()
@@ -199,9 +206,10 @@ const PostDetail = (props)=>{
                 <h2>{detail.title}</h2>
                 <button onClick={deletePost} className="deleteButton">Delete</button>
                 <form onSubmit={addPhoto} id="photoForm" encType="multipart/form-data">
-                    <input id="file" type="file" name="file"></input>
+                    <h3>Add photo</h3>
+                    <input id="file" type="file" onChange={onInputChange}  name="file"></input>
                     
-                    <input type="submit"></input>
+                    <input id="submitPhoto" type="submit"></input>
                 </form>
                 <p>Created at: {detail.createdAt};  Last Update: {detail.updatedAt}</p>
                 <p>{detail.body}</p>
