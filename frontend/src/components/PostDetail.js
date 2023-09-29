@@ -212,14 +212,15 @@ const PostDetail = (props)=>{
                     <input id="submitPhoto" type="submit"></input>
                 </form>
                 <p>Created at: {detail.createdAt};  Last Update: {detail.updatedAt}</p>
-                <p>{detail.body}</p>
                 {
                 allImage==null?"":
                 allImage.map(data=>{
                     return(
-                        <img src={require(`./uploads/${data.image}`)}></img>
+                        <img className="imgPhotoDetail" src={require(`./uploads/${data.image}`)}></img>
                     )
                 })}
+                <p>{detail.body}</p>
+              
                 </div>
                 <div className="commentsBox">
                     <h2>Comments:</h2>

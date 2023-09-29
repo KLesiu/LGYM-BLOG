@@ -18,7 +18,7 @@ header{
   justify-content: center;
   width: 100%;
 }
-header h1{
+header h1 {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.267);
   color: rgba(255, 255, 255, 0.5);
@@ -29,6 +29,11 @@ header h1{
   font-weight: 700;
   text-shadow: 3px 4px 1px rgba(0, 0, 0, 1);
   width: 100%;
+}
+header h1 a{
+  color: rgba(255, 255, 255, 0.5);
+  text-shadow: 3px 4px 1px rgba(0, 0, 0, 1);
+  
 }
 .preloadContainer,form{
   align-items: center;
@@ -220,7 +225,8 @@ a{
   text-decoration: none;
 }
 .photoHolder{
-  background-color: rgb(139, 139, 139);
+  align-items: center;
+  display: flex;
   border-radius: 10px;
   height: 100%;
   width: 60%;
@@ -378,12 +384,12 @@ header div a button:hover{
 }
 #photoForm{
   border-radius: 10px;
-  height: 40%;
+  height: 150px;
   display: flex;
   flex-direction: column;
   position: absolute;
-  right: 12.5%;
-  top: 20%;
+  right: 3%;
+  top: 0%;
   width: 10%;
 }
 #submitPhoto{
@@ -399,8 +405,24 @@ header div a button:hover{
   height: 20%;
   width: 90%;
 }
+#body{
+  border-radius: 10px;
+  height: 30%;
+  margin-top: 20px;
+  width: 40%;
+}
+.imgPhotoDetail{
+  width: 100%;
+}
+.elementId{
+  color: white;
+  position: absolute;
+}
+.photoHolderImage{
+ 
+  width: 100%;
 
-
+}
 .hidden{
   display: none;
 }

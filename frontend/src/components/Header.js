@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header=(props)=>{
     const [username,setUsername]= useState('')
@@ -62,7 +63,7 @@ const Header=(props)=>{
     if(admin===false){
         return(
             <header>
-                <h1>LGYM BLOG</h1>
+                <h1><a href="/blog">LGYM BLOG</a></h1>
                 <div className="registerlogin hidden"><a href="/form"><button> Register</button> </a>
                 <a href="/login"><button>Login</button></a></div>
                 <div className="logoutDiv hidden">
@@ -76,7 +77,7 @@ const Header=(props)=>{
     }else{
         return(
             <header>
-                <h1>LGYM BLOG</h1>
+                <h1><a href="/blog">LGYM BLOG</a></h1>
                 <div className="registerlogin hidden"><a href="/form"><button> Register</button> </a>
                 <a href="/login"><button>Login</button></a></div>
                 <div className="logoutDiv hidden">

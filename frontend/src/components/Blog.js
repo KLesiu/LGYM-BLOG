@@ -51,10 +51,12 @@ const Blog =(props)=>{
         })
         
        
-        
+  
     }
+    
     useEffect(()=>{
         isAdmin()
+        
     },[])
 
     if(welcome===false){
@@ -96,7 +98,7 @@ const Blog =(props)=>{
         }else if(admin===true){
             return(
                 <div id="postCardsContainer">
-                    {adminPosts.map((element)=>{
+                    {adminPosts ==null ?"" : adminPosts.map((element)=>{
                         return (
                             <a href={`/blog/${element._id}`} className="postCard"><div className="infoCard"  key={uniqid()}>
                             <h3>{element.title}</h3>
@@ -104,9 +106,10 @@ const Blog =(props)=>{
                             <p>Created: {element.createdAt}</p>
                             <p>Last update: {element.updatedAt}</p>
                             <p className="cardBody">{element.body}</p>
+                            <span className="elementId">{element._id}</span>
                             
                         </div><div className="photoHolder">
-                      
+                           <img className="photoHolderImage" src={require(`./uploads/${element.imageSrc}`)}></img>
 
                             </div></a>  
                         )
