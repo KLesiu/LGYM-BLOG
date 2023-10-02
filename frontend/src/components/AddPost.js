@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
+require("dotenv").config()
 
 const AddPost=(props)=>{
     const {id} = useParams()
@@ -10,7 +11,7 @@ const AddPost=(props)=>{
    const isAdmin=async()=>{
     const id = localStorage.getItem("id")
     
-    const response = await fetch('http://localhost:3001/api/auth/isAdmin',{
+    const response = await fetch(`${process.env.BACKEND}/api/auth/isAdmin`,{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -42,7 +43,7 @@ const AddPost=(props)=>{
         }
     }
     const token = localStorage.getItem('token')
-    const response = await fetch('http://localhost:3001/api/posts/create',{
+    const response = await fetch(`${process.env.BACKEND}/api/posts/create`,{
         method:"POST",
         headers:{
             "Content-Type":"application/json",
@@ -65,7 +66,7 @@ const AddPost=(props)=>{
    
    }
    const getInfo=async()=>{
-        const response = await fetch(`http://localhost:3001/api/posts/${id}`).then(function(ele){
+        const response = await fetch(`${process.env.BACKEND}/api/posts/${id}`).then(function(ele){
             return ele.json()
         }).then((data)=>{
             setOldTitle(data.title)
@@ -78,7 +79,7 @@ const AddPost=(props)=>{
     let title = document.querySelector("#title").value
     let body = document.querySelector("#body").value
     const token = localStorage.getItem('token')
-    const response = await fetch(`http://localhost:3001/api/posts/${id}/update`,{
+    const response = await fetch(`${process.env.BACKEND}/api/posts/${id}/update`,{
         method:"POST",
         headers:{
             "Content-Type":"application/json",

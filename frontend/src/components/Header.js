@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+require("dotenv").config()
 const Header=(props)=>{
     const [username,setUsername]= useState('')
     const [admin,setAdmin] =useState('')
@@ -20,7 +20,7 @@ const Header=(props)=>{
        
             const id = localStorage.getItem("id")
             
-            const response = await fetch('http://localhost:3001/api/auth/isAdmin',{
+            const response = await fetch(`${process.env.BACKEND}/api/auth/isAdmin`,{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json"

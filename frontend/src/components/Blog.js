@@ -1,14 +1,14 @@
 import React from "react";
 import { useState,useEffect } from "react";
 import uniqid from 'uniqid'
-
+require("dotenv").config()
 const Blog =(props)=>{
     const [posts,setPosts]= useState([])
     const [adminPosts,setAdminPosts]= useState([])
     const [admin,setAdmin]=useState('')
     const [welcome,setWelcome]= useState(false)
     const getPosts = async()=>{
-        const response = await fetch("http://localhost:3001/api/posts").then(function(data){
+        const response = await fetch(`${process.env.BACKEND}/api/posts`).then(function(data){
             
             return data.json()
         }).then(function(data){
@@ -33,7 +33,7 @@ const Blog =(props)=>{
        
         const id = localStorage.getItem("id")
         
-        const response = await fetch('http://localhost:3001/api/auth/isAdmin',{
+        const response = await fetch(`${process.env.BACKEND}/api/auth/isAdmin`,{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"
