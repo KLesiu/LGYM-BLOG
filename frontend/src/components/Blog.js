@@ -82,14 +82,21 @@ const Blog =(props)=>{
         if(admin===false){
             return(
                 <div id="postCardsContainer">
-                    {posts.map((element)=>{
+                   {posts ==null ?"" : posts.map((element)=>{
                         return (
-                            <a href={`/blog/${element._id}`} className="postCard"><div  key={uniqid()}>
+                            <a href={`/blog/${element._id}`} className="postCard"><div className="infoCard"  key={uniqid()}>
                             <h3>{element.title}</h3>
                             
                             <p>Created: {element.createdAt}</p>
                             <p>Last update: {element.updatedAt}</p>
-                        </div></a>  
+                            <p className="cardBody">{element.body.substr(0,400)+"...(czytaj dalej)"}</p>
+                            <span className="elementId">{element._id}</span>
+                            
+                        </div><div className="photoHolder">
+                            {element.imageSrc === undefined?"":<img className="photoHolderImage" src={require(`./uploads/${element.imageSrc}`)}></img>}
+                           
+
+                            </div></a>  
                         )
                     })}
                 </div>
