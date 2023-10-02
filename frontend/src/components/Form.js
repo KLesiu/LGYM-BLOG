@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-require("dotenv").config()
+
 
 const Form=(props)=>{
     const [errors,setErrors]= useState('')
@@ -13,7 +13,7 @@ const Form=(props)=>{
         if(pass !== cpass){
             return setErrors("Passwords arent the same!")
         }
-       const response = await fetch(`${process.env.BACKEND}/api/auth/register`,{
+       const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/auth/register`,{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -40,7 +40,7 @@ const Form=(props)=>{
         event.preventDefault();
         let name = document.querySelector("#loginName").value
         let pass = document.querySelector("#loginPass").value
-        const response = await fetch(`${process.env.BACKEND}/api/auth/login`,{
+        const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/auth/login`,{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"

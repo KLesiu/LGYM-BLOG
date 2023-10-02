@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams } from 'react-router-dom';
 import { useEffect } from "react";
 import uniqid from 'uniqid'
-require("dotenv").config()
+
 
 const PostDetail = (props)=>{
     const {id} = useParams()
@@ -13,7 +13,7 @@ const PostDetail = (props)=>{
     const [image, setImage] = useState(null);
     const [allImage,setAllImage]=useState(null)
     const getDetail = async()=>{
-        const res = await fetch(`${process.env.BACKEND}/api/posts/${id}`).then(function(ele){
+        const res = await fetch(`${process.env.REACT_APP_BACKEND}/api/posts/${id}`).then(function(ele){
             return ele.json()
         }).then((data)=>{
             return setDetail({
@@ -28,7 +28,7 @@ const PostDetail = (props)=>{
     }
     const getComments = async()=>{
 
-        const res = await fetch(`${process.env.BACKEND}/api/posts/${id}/comments`).then(function(ele){
+        const res = await fetch(`${process.env.REACT_APP_BACKEND}/api/posts/${id}/comments`).then(function(ele){
 
            return ele.json()
         }).catch((err)=>{
@@ -64,7 +64,7 @@ const PostDetail = (props)=>{
         const body = document.querySelector('.newComment').value
         const token = localStorage.getItem('token')
 
-        const response = await fetch(`${process.env.BACKEND}/api/posts/${post}/add-comment`,{
+        const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/posts/${post}/add-comment`,{
             method:'POST',
             headers:{
                 "Content-Type":"application/json",
@@ -90,7 +90,7 @@ const PostDetail = (props)=>{
 
         const id = localStorage.getItem("id")
 
-        const response = await fetch(`${process.env.BACKEND}/api/auth/isAdmin`,{
+        const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/auth/isAdmin`,{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"
@@ -111,7 +111,7 @@ const PostDetail = (props)=>{
     }
     const deletePost=async()=>{
         const token = localStorage.getItem('token')
-        const response = await fetch(`${process.env.BACKEND}/api/posts/${id}/delete`,{
+        const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/posts/${id}/delete`,{
             method:'POST',
             headers:{
                 "Content-Type":"application/json",
@@ -131,7 +131,7 @@ const PostDetail = (props)=>{
         const token = localStorage.getItem('token')
         const formData= new FormData()
         formData.append("file",image)
-    const response = await fetch(`${process.env.BACKEND}/api/posts/${post}/upload`,{
+    const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/posts/${post}/upload`,{
         method:"POST",
         headers:{
             "Authorization": `Bearer ${token} `
@@ -148,7 +148,7 @@ const PostDetail = (props)=>{
     }
     const getImage=async()=>{
         const post = id
-        const result = await fetch(`${process.env.BACKEND}/api/posts/${post}/upload`).then((result)=>{
+        const result = await fetch(`${process.env.REACT_APP_BACKEND}/api/posts/${post}/upload`).then((result)=>{
             return result.json()
             
            
