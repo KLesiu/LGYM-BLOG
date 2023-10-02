@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/LGYM-BLOG/static/css/main.36d3b0bf.css",
+    "main.js": "/LGYM-BLOG/static/js/main.a73d59cb.js",
+    "static/media/1696028876025pexels-photo-4793220.jpeg": "/LGYM-BLOG/static/media/1696028876025pexels-photo-4793220.6df93469223cd4d1bea6.jpeg",
+    "static/media/arnold.jpg": "/LGYM-BLOG/static/media/arnold.6cc37e0e3745cf111263.jpg",
+    "static/media/wallpaper2.jpg": "/LGYM-BLOG/static/media/wallpaper2.977211200c2006b99069.jpg",
+    "index.html": "/LGYM-BLOG/index.html",
+    "main.36d3b0bf.css.map": "/LGYM-BLOG/static/css/main.36d3b0bf.css.map",
+    "main.a73d59cb.js.map": "/LGYM-BLOG/static/js/main.a73d59cb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.36d3b0bf.css",
+    "static/js/main.a73d59cb.js"
+  ]
+}
