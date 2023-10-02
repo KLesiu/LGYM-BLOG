@@ -12,7 +12,7 @@ const Header=(props)=>{
         setUsername('')
         document.querySelector('.logoutDiv').classList.add("hidden")
         
-        window.location.href="http://localhost:3000/login"
+        window.location.href="https://lgym-blog.vercel.app/login"
         
         
     }
@@ -41,7 +41,7 @@ const Header=(props)=>{
             
     }
     const hrefToAddPost=()=>{
-        window.location.href="http://localhost:3000/admin/add-post"
+        window.location.href="https://lgym-blog.vercel.app/admin/add-post"
     }
    
     useEffect(()=>{

@@ -61,7 +61,7 @@ const AddPost=(props)=>{
         
         return data.json()
     }).then(()=>{
-        return window.location.href="http://localhost:3000/blog"
+        return window.location.href="https://lgym-blog.vercel.app/blog"
     })
 
    
@@ -97,7 +97,7 @@ const AddPost=(props)=>{
         
         return data.json()
     }).then(()=>{
-        return window.location.href="http://localhost:3000/blog"
+        return window.location.href="https://lgym-blog.vercel.app/blog"
     })
    }
    

@@ -122,7 +122,7 @@ const PostDetail = (props)=>{
             return res.json()
         }).then((data)=>
         console.log(data))
-        window.location.href="http://localhost:3000/blog"
+        window.location.href="https://lgym-blog.vercel.app/blog"
     }   
     const addPhoto=async(event)=>{
         event.preventDefault()
