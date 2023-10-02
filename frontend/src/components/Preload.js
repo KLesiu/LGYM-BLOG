@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Preload=(props)=>{
    useEffect(()=>{
-    window.location.href="http://localhost:3000/blog"
+    window.location.href="https://lgym-blog.vercel.app/blog"
    },[])
     return(
         <div className="preloadContainer">
