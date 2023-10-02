@@ -7,7 +7,6 @@ const Blog =(props)=>{
     const [adminPosts,setAdminPosts]= useState([])
     const [admin,setAdmin]=useState('')
     const [welcome,setWelcome]= useState(false)
-    const [list,setList]= useState('')
     const getPosts = async()=>{
         const response = await fetch("http://localhost:3001/api/posts").then(function(data){
             
