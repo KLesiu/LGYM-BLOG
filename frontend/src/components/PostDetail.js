@@ -144,7 +144,7 @@ const PostDetail = (props)=>{
     }).then((data)=>{
 
         return data.json()
-    }).then(data=>console.log(data))
+    })
     }
     const getImage=async()=>{
         const post = id
@@ -153,7 +153,7 @@ const PostDetail = (props)=>{
             
            
         }).then((data)=>{
-            console.log(data)
+            
             return setAllImage(data.data)
         })
     }
