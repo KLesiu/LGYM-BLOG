@@ -628,5 +628,26 @@ form button{
   height: 100%;
   width: 100%;
 }
+.logoutDiv {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  width: 85%;
+}
+.logoutDiv h3 {
+  background-color: #fff;
+  border-radius: 10px;
+  font-size: 17px;
+  padding: 2px;
+}
+.logoutDiv button {
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  height: 26px;
+  width: 26%;
+}
+
 
 }
