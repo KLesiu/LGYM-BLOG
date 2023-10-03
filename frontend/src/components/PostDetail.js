@@ -201,7 +201,7 @@ const PostDetail = (props)=>{
                 </div>
             </div>
         )
-    }else{
+    }else if(admin===true){
         return(
             <div className="detailContainer">
 
