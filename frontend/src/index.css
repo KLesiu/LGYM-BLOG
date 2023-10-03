@@ -430,9 +430,7 @@ header div a button:hover{
   width: 100%;
 
 }
-.hidden{
-  display: none;
-}
+
 
 
 @media screen and (max-width:1500px){
@@ -650,4 +648,7 @@ form button{
 }
 
 
+}
+.hidden{
+  display: none;
 }
