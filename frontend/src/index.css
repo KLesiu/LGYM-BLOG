@@ -431,6 +431,79 @@ header div a button:hover{
   display: none;
 }
 
+
+@media screen and (max-width:1300px){
+  #welcome span p{
+    font-size: 14px;
+  }
+  .logoutDiv button {
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    height: 49px;
+    width: 26%;
+}
+.logoutDiv h3 {
+  background-color: #fff;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 4px;
+}
+#postCardsContainer {
+  background-color: rgba(0,0,0,.514);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  min-height: 80vh;
+  width: 80%;
+}
+.deleteButton {
+  background-color: #b45d5d;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 5px;
+  position: absolute;
+  right: 15%;
+  width: 10%;
+}
+#photoForm {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  position: absolute;
+  right: 0%;
+  top: 109px;
+  width: 14%;
+}
+body {
+  background-color: #000;
+  font-family: Ysabeau Office,sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  padding: 0;
+  width: 98vw;
+}
+form button, form input {
+  background-color: #fff;
+  border: none;
+  border-radius: 20px;
+  color: #000;
+  height: 13%;
+  margin-top: 20px;
+}
+form button {
+  cursor: pointer;
+  font-family: Ysabeau Office,sans-serif;
+  font-size: 40px;
+  width: 30%;
+}
+}
 @media screen and (max-width:600px) {
   header h1 {
     text-align: center;
@@ -551,76 +624,4 @@ form button{
   width: 100%;
 }
 
-}
-@media screen and (max-width:1300px){
-  #welcome span p{
-    font-size: 14px;
-  }
-  .logoutDiv button {
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 18px;
-    height: 49px;
-    width: 26%;
-}
-.logoutDiv h3 {
-  background-color: #fff;
-  border-radius: 10px;
-  font-size: 20px;
-  padding: 4px;
-}
-#postCardsContainer {
-  background-color: rgba(0,0,0,.514);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-left: 10%;
-  margin-right: 10%;
-  min-height: 80vh;
-  width: 80%;
-}
-.deleteButton {
-  background-color: #b45d5d;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 20px;
-  padding: 5px;
-  position: absolute;
-  right: 15%;
-  width: 10%;
-}
-#photoForm {
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  height: 150px;
-  position: absolute;
-  right: 0%;
-  top: 109px;
-  width: 14%;
-}
-body {
-  background-color: #000;
-  font-family: Ysabeau Office,sans-serif;
-  margin: 0;
-  min-height: 100vh;
-  padding: 0;
-  width: 98vw;
-}
-form button, form input {
-  background-color: #fff;
-  border: none;
-  border-radius: 20px;
-  color: #000;
-  height: 13%;
-  margin-top: 20px;
-}
-form button {
-  cursor: pointer;
-  font-family: Ysabeau Office,sans-serif;
-  font-size: 40px;
-  width: 30%;
-}
 }
