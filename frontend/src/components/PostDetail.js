@@ -80,9 +80,8 @@ const PostDetail = (props)=>{
             alert('You have to be logged in to add comments')
             return res
         })
-      if(response.ok){
-        window.location.reload(true)
-      }
+        return window.location.reload(true)
+      
 
 
     }
