@@ -184,7 +184,7 @@ form button:hover{
   min-height: 80vh;
   width: 70%;
 }
-@media screen and (min-width: 1301px ) {
+@media screen and (min-width: 1501px ) {
   .postCard{
  
     background-color: white;
@@ -435,7 +435,7 @@ header div a button:hover{
 }
 
 
-@media screen and (max-width:1300px){
+@media screen and (max-width:1500px){
   #welcome span p{
     font-size: 14px;
   }
