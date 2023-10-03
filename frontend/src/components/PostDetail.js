@@ -9,7 +9,7 @@ const PostDetail = (props)=>{
     const [detail,setDetail]= useState('')
     const [comments,setComments]=useState([])
     const [showAllComments,setShowAllComments]=useState('')
-    const [admin,setAdmin]=useState('')
+    const [admin,setAdmin]=useState(false)
     const [image, setImage] = useState(null);
     const [allImage,setAllImage]=useState(null)
     const getDetail = async()=>{
