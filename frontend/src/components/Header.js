@@ -60,21 +60,7 @@ const Header=(props)=>{
         }
         isAdmin()
     },[])
-    if(admin===false){
-        return(
-            <header>
-                <h1><a href="/blog">LGYM BLOG</a></h1>
-                <div className="registerlogin hidden"><a href="/form"><button> Register</button> </a>
-                <a href="/login"><button>Login</button></a></div>
-                <div className="logoutDiv hidden">
-                    <h3>Welcome <span id="usernameHolder">{username}</span>!</h3>
-                    <button onClick={logout}>Logout</button>
-                    
-                </div>
-    
-            </header>
-        ) 
-    }else{
+    if(admin===true){
         return(
             <header>
                 <h1><a href="/blog">LGYM BLOG</a></h1>
@@ -84,6 +70,21 @@ const Header=(props)=>{
                     <h3>Welcome <span id="usernameHolder">{username}</span>!</h3>
                     <button onClick={logout}>Logout</button>
                     <button onClick={hrefToAddPost}>Add Post</button>
+                </div>
+    
+            </header>
+        ) 
+        
+    }else{
+        return(
+            <header>
+                <h1><a href="/blog">LGYM BLOG</a></h1>
+                <div className="registerlogin hidden"><a href="/form"><button> Register</button> </a>
+                <a href="/login"><button>Login</button></a></div>
+                <div className="logoutDiv hidden">
+                    <h3>Welcome <span id="usernameHolder">{username}</span>!</h3>
+                    <button onClick={logout}>Logout</button>
+                    
                 </div>
     
             </header>
