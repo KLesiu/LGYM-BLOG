@@ -169,14 +169,29 @@ const PostDetail = (props)=>{
         getImage()
         
     },[])
-    if(admin===false){
+   if(admin===true){
         return(
             <div className="detailContainer">
+
                 <div className="detailBox">
                 <h2>{detail.title}</h2>
-
+                <button onClick={deletePost} className="deleteButton">Delete</button>
+                <form onSubmit={addPhoto} id="photoForm" encType="multipart/form-data">
+                    <h3>Add photo</h3>
+                    <input id="file" type="file" onChange={onInputChange}  name="file"></input>
+                    
+                    <input id="submitPhoto" type="submit"></input>
+                </form>
                 <p>Created at: {detail.createdAt};  Last Update: {detail.updatedAt}</p>
+                {
+                allImage==null?"":
+                allImage.map(data=>{
+                    return(
+                        <img className="imgPhotoDetail" src={require(`./uploads/${data.image}`)}></img>
+                    )
+                })}
                 <p>{detail.body}</p>
+              
                 </div>
                 <div className="commentsBox">
                     <h2>Comments:</h2>
@@ -201,29 +216,14 @@ const PostDetail = (props)=>{
                 </div>
             </div>
         )
-    }else if(admin===true){
+    }else{
         return(
             <div className="detailContainer">
-
                 <div className="detailBox">
                 <h2>{detail.title}</h2>
-                <button onClick={deletePost} className="deleteButton">Delete</button>
-                <form onSubmit={addPhoto} id="photoForm" encType="multipart/form-data">
-                    <h3>Add photo</h3>
-                    <input id="file" type="file" onChange={onInputChange}  name="file"></input>
-                    
-                    <input id="submitPhoto" type="submit"></input>
-                </form>
+
                 <p>Created at: {detail.createdAt};  Last Update: {detail.updatedAt}</p>
-                {
-                allImage==null?"":
-                allImage.map(data=>{
-                    return(
-                        <img className="imgPhotoDetail" src={require(`./uploads/${data.image}`)}></img>
-                    )
-                })}
                 <p>{detail.body}</p>
-              
                 </div>
                 <div className="commentsBox">
                     <h2>Comments:</h2>
