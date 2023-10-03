@@ -219,11 +219,20 @@ const PostDetail = (props)=>{
     }else{
         return(
             <div className="detailContainer">
+
                 <div className="detailBox">
                 <h2>{detail.title}</h2>
-
+                
                 <p>Created at: {detail.createdAt};  Last Update: {detail.updatedAt}</p>
+                {
+                allImage==null?"":
+                allImage.map(data=>{
+                    return(
+                        <img className="imgPhotoDetail" src={require(`./uploads/${data.image}`)}></img>
+                    )
+                })}
                 <p>{detail.body}</p>
+              
                 </div>
                 <div className="commentsBox">
                     <h2>Comments:</h2>

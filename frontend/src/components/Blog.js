@@ -5,7 +5,7 @@ import uniqid from 'uniqid'
 const Blog =(props)=>{
     const [posts,setPosts]= useState([])
     const [adminPosts,setAdminPosts]= useState([])
-    const [admin,setAdmin]=useState('')
+    const [admin,setAdmin]=useState(false)
     const [welcome,setWelcome]= useState(false)
     const getPosts = async()=>{
         const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/posts`).then(function(data){
