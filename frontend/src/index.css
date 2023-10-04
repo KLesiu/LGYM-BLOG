@@ -364,7 +364,7 @@ header div a button:hover{
 .comment{
   display: flex;
   justify-content: flex-start;
-  height: 70px;
+  height: 10%;
   flex-direction: column;
   
 }
