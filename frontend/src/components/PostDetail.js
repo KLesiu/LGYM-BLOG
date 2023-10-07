@@ -102,32 +102,32 @@ const PostDetail = ()=>{
         
         window.location.href="https://lgym-blog.vercel.app/blog"
     }   
-    const addPhoto=async(event)=>{
-        event.preventDefault()
-        const post = id
+    // const addPhoto=async(event)=>{
+    //     event.preventDefault()
+    //     const post = id
         
-        const token = localStorage.getItem('token')
-        const formData= new FormData()
-        formData.append("file",image)
-    const response = await fetch(`${process.env.REACT_APP_BACKENDLOCAL}/api/posts/${post}/upload`,{
-        method:"POST",
-        headers:{
-            "Authorization": `Bearer ${token} `
-        },
-        body:formData
+    //     const token = localStorage.getItem('token')
+    //     const formData= new FormData()
+    //     formData.append("file",image)
+    // const response = await fetch(`${process.env.REACT_APP_BACKENDLOCAL}/api/posts/${post}/upload?file`,{
+    //     method:"POST",
+    //     headers:{
+    //         "Authorization": `Bearer ${token} `
+    //     },
+    //     body:formData
 
 
-    }).catch(err=>console.log(err))
-      .then(data=>data.json()
-    )
-    }
+    // }).catch(err=>console.log(err))
+    //   .then(data=>data.json()
+    // )
+    // }
     const getImage=async()=>{
         const post = id
         
         const result = await fetch(`${process.env.REACT_APP_BACKEND}/api/posts/${post}/upload`).then(result=>result.json())
         .then(data=>setAllImage(data.data))
     }
-    const onInputChange = e =>setImage(e.target.files[0]);
+    // const onInputChange = e =>setImage(e.target.files[0]);
     
    
     useEffect(()=>{
@@ -147,12 +147,12 @@ const PostDetail = ()=>{
                 <div className="detailBox">
                 <h2 id="title">{detail.title}</h2>
                 <button onClick={deletePost} className="deleteButton">Delete</button>
-                <form onSubmit={addPhoto} id="photoForm" encType="multipart/form-data">
+                {/* <form onSubmit={addPhoto} id="photoForm" encType="multipart/form-data">
                     <h3>Add photo</h3>
                     <input id="file" type="file" onChange={onInputChange}  name="file"></input>
                     
                     <input id="submitPhoto" type="submit"></input>
-                </form>
+                </form> */}
                 <p>Created at: {detail.createdAt};  Last Update: {detail.updatedAt}</p>
                 {
                 allImage==null?"":
