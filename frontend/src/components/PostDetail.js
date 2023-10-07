@@ -109,7 +109,7 @@ const PostDetail = ()=>{
         const token = localStorage.getItem('token')
         const formData= new FormData()
         formData.append("file",image)
-    const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/posts/${post}/upload`,{
+    const response = await fetch(`${process.env.REACT_APP_BACKENDLOCAL}/api/posts/${post}/upload`,{
         method:"POST",
         headers:{
             "Authorization": `Bearer ${token} `
@@ -145,7 +145,7 @@ const PostDetail = ()=>{
             <div className="detailContainer">
 
                 <div className="detailBox">
-                <h2>{detail.title}</h2>
+                <h2 id="title">{detail.title}</h2>
                 <button onClick={deletePost} className="deleteButton">Delete</button>
                 <form onSubmit={addPhoto} id="photoForm" encType="multipart/form-data">
                     <h3>Add photo</h3>
