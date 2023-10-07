@@ -123,6 +123,7 @@ const PostDetail = ()=>{
     }
     const getImage=async()=>{
         const post = id
+        
         const result = await fetch(`${process.env.REACT_APP_BACKEND}/api/posts/${post}/upload`).then(result=>result.json())
         .then(data=>setAllImage(data.data))
     }
@@ -133,9 +134,12 @@ const PostDetail = ()=>{
         getDetail()
         getComments()
         isAdmin()
-        getImage()
+        
         
     },[])
+    useEffect(()=>{
+        getImage()
+    },[image])
    if(admin)
         return(
             <div className="detailContainer">
