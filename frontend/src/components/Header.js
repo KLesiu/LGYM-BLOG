@@ -8,6 +8,7 @@ const Header=()=>{
         localStorage.removeItem("username")
         localStorage.removeItem('token')
         localStorage.removeItem('admin')
+        localStorage.removeItem("id")
         setUsername('')
         document.querySelector('.logoutDiv').classList.add("hidden")
         
