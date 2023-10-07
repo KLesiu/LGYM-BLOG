@@ -65,8 +65,8 @@ const AddPost=(props)=>{
         })
         
    }
-   const editPost=async()=>{
-    
+   const editPost=async(event)=>{
+    event.preventDefault()
     let title = document.querySelector("#title").value
     let body = document.querySelector("#body").value
     const token = localStorage.getItem('token')
