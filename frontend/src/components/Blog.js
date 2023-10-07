@@ -8,10 +8,9 @@ const Blog =(props)=>{
     const [admin,setAdmin]=useState(false)
     const [welcome,setWelcome]= useState(false)
     const getPosts = async()=>{
-        const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/posts`).then(function(data){
-            
-            return data.json()
-        }).then(function(data){
+        const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/posts`)
+        .then(data=>data.json())
+        .then(data=>{
             const count = data.length
             const array = []
             const adminArray = []
@@ -26,7 +25,7 @@ const Blog =(props)=>{
             setPosts(array)
             setAdminPosts(adminArray)
             setWelcome(true)
-            return 
+            
         })
     }
     const isAdmin=async()=>{
@@ -78,8 +77,8 @@ const Blog =(props)=>{
         </div>
         )
     }
-    if(welcome===true){
-        if(admin===false){
+    if(welcome){
+        if(admin===false)
             return(
                 <div id="postCardsContainer">
                    {posts ==null ?"" : posts.map((element)=>{
@@ -101,7 +100,7 @@ const Blog =(props)=>{
                     })}
                 </div>
             )
-        }else if(admin===true){
+        else if(admin)
             return(
                 <div id="postCardsContainer">
                     {adminPosts ==null ?"" : adminPosts.map((element)=>{
@@ -123,7 +122,7 @@ const Blog =(props)=>{
                     })}
                 </div>
             )
-        }
+        
        
     }
     

@@ -4,19 +4,16 @@ import { useEffect } from "react";
 import uniqid from 'uniqid'
 
 
-const PostDetail = (props)=>{
+const PostDetail = ()=>{
     const {id} = useParams()
     const [detail,setDetail]= useState('')
     const [comments,setComments]=useState([])
-    const [showAllComments,setShowAllComments]=useState('')
     const [admin,setAdmin]=useState(false)
     const [image, setImage] = useState(null);
     const [allImage,setAllImage]=useState(null)
     const getDetail = async()=>{
-        const res = await fetch(`${process.env.REACT_APP_BACKEND}/api/posts/${id}`).then(function(ele){
-            return ele.json()
-        }).then((data)=>{
-            return setDetail({
+        const res = await fetch(`${process.env.REACT_APP_BACKEND}/api/posts/${id}`).then(ele=>ele.json())
+        .then(data=>setDetail({
                 body: data.body,
                 createdAt: data.createdAt,
                 published: data.published,
@@ -24,28 +21,18 @@ const PostDetail = (props)=>{
                 updatedAt:data.updatedAt,
                 _id:data._id
             })
-        })
+        )
     }
     const getComments = async()=>{
 
-        const res = await fetch(`${process.env.REACT_APP_BACKEND}/api/posts/${id}/comments`).then(function(ele){
-
-           return ele.json()
-        }).catch((err)=>{
-            return err
-        }).then((data)=>{
-
-
-                if(data=== 'This post doesnt have any comments'){
-                    return
-                }
+        const res = await fetch(`${process.env.REACT_APP_BACKEND}/api/posts/${id}/comments`)
+        .then(ele=>ele.json())
+        .catch(err=>err)
+        .then(data=>{
+            if(data=== 'This post doesnt have any comments') return 'This post doesnt have any comments'
                 const arr = []
-                comments.map((ele)=>{
-                    arr.push(ele)
-                })
-                data.map((ele)=>{
-                    arr.push(ele)
-                })
+                comments.map(ele=>arr.push(ele))
+                data.map(ele=>arr.push(ele))
 
                 return setComments(arr)
 
@@ -73,13 +60,8 @@ const PostDetail = (props)=>{
             body:JSON.stringify({
                body:body 
             })
-        }).then(function(res){
-
-            return res.json()
-        }).catch(function(res){
-            alert('You have to be logged in to add comments')
-            return res
-        })
+        }).then(res=>res.json())
+          .catch(()=>alert('You have to be logged in to add comments'))
         return window.location.reload(true)
       
 
@@ -97,9 +79,8 @@ const PostDetail = (props)=>{
             body:JSON.stringify({
                 _id:id 
             })
-        }).then(function(res){
-            return res.json()
-        }).then(function(res){
+        }).then(res=>res.json())
+          .then(res=>{
             const admin = res.admin
             setAdmin(admin)
             return admin
@@ -117,10 +98,8 @@ const PostDetail = (props)=>{
                 "Authorization": `Bearer ${token} `
             }
 
-        }).then((res)=>{
-            return res.json()
-        }).then((data)=>
-        console.log(data))
+        }).then(res=>res.json())
+        
         window.location.href="https://lgym-blog.vercel.app/blog"
     }   
     const addPhoto=async(event)=>{
@@ -138,28 +117,17 @@ const PostDetail = (props)=>{
         body:formData
 
 
-    }).catch((err)=>{
-        console.log(err)
-    }).then((data)=>{
-
-        return data.json()
-    })
+    }).catch(err=>console.log(err))
+      .then(data=>data.json()
+    )
     }
     const getImage=async()=>{
         const post = id
-        const result = await fetch(`${process.env.REACT_APP_BACKEND}/api/posts/${post}/upload`).then((result)=>{
-            return result.json()
-            
-           
-        }).then((data)=>{
-            
-            return setAllImage(data.data)
-        })
+        const result = await fetch(`${process.env.REACT_APP_BACKEND}/api/posts/${post}/upload`).then(result=>result.json())
+        .then(data=>setAllImage(data.data))
     }
-    const onInputChange = (e) => {
-        
-        setImage(e.target.files[0]);
-      };
+    const onInputChange = e =>setImage(e.target.files[0]);
+    
    
     useEffect(()=>{
         getDetail()
@@ -168,7 +136,7 @@ const PostDetail = (props)=>{
         getImage()
         
     },[])
-   if(admin===true){
+   if(admin)
         return(
             <div className="detailContainer">
 
@@ -184,11 +152,11 @@ const PostDetail = (props)=>{
                 <p>Created at: {detail.createdAt};  Last Update: {detail.updatedAt}</p>
                 {
                 allImage==null?"":
-                allImage.map(data=>{
-                    return(
+                allImage.map(data=>
+                    (
                         <img className="imgPhotoDetail" src={require(`./uploads/${data.image}`)}></img>
                     )
-                })}
+                )}
                 <p>{detail.body}</p>
               
                 </div>
@@ -196,15 +164,15 @@ const PostDetail = (props)=>{
                     <h2>Comments:</h2>
                     <ul id="commentsHolder">
                     {    
-                        comments.map((ele)=>{
+                        comments.map(ele=>
 
-                            return(
+                            (
                                 <li className="comment" key={uniqid()}>
                                     <h3>{ele.username}</h3>
                                     <p>{ele.body}</p>
                                 </li>
                             )
-                        })
+                        )
                     }</ul>
                     <div className="addCommentContainer hidden">
                     <textarea name="newComment" className="newComment"/>
@@ -215,7 +183,7 @@ const PostDetail = (props)=>{
                 </div>
             </div>
         )
-    }else{
+    else
         return(
             <div className="detailContainer">
 
@@ -225,11 +193,11 @@ const PostDetail = (props)=>{
                 <p>Created at: {detail.createdAt};  Last Update: {detail.updatedAt}</p>
                 {
                 allImage==null?"":
-                allImage.map(data=>{
-                    return(
+                allImage.map(data=>
+                    (
                         <img className="imgPhotoDetail" src={require(`./uploads/${data.image}`)}></img>
                     )
-                })}
+                )}
                 <p>{detail.body}</p>
               
                 </div>
@@ -237,15 +205,14 @@ const PostDetail = (props)=>{
                     <h2>Comments:</h2>
                     <ul id="commentsHolder">
                     {    
-                        comments.map((ele)=>{
-
-                            return(
+                        comments.map(ele=>
+                            (
                                 <li className="comment" key={uniqid()}>
                                     <h3>{ele.username}</h3>
                                     <p>{ele.body}</p>
                                 </li>
                             )
-                        })
+                        )
                     }</ul>
                     <div className="addCommentContainer hidden">
                     <textarea name="newComment" className="newComment"/>
@@ -256,7 +223,7 @@ const PostDetail = (props)=>{
                 </div>
             </div>
         )
-    }
+    
 
 }
 export default PostDetail

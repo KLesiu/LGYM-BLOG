@@ -37,12 +37,9 @@ const AddPost=(props)=>{
     let published = document.querySelector("#published").value
     
     const isPublish=()=>{
-        if(published==='true'){
-            return true
-        }else{
-            return false
-        }
-    }
+        if(published)return true
+        else return false
+            }
     const token = localStorage.getItem('token')
     const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/posts/create`,{
         method:"POST",
@@ -55,21 +52,14 @@ const AddPost=(props)=>{
             body:body,
             published:isPublish()
         }) 
-    }).catch((err)=>{
-        console.log(err)
-    }).then((data)=>{
-        
-        return data.json()
-    }).then(()=>{
-        return window.location.href="https://lgym-blog.vercel.app/blog"
-    })
+    }).catch(err=> console.log(err))
+      .then(data=> data.json())
+      .then(()=>window.location.href="https://lgym-blog.vercel.app/blog")
 
    
    }
    const getInfo=async()=>{
-        const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/posts/${id}`).then(function(ele){
-            return ele.json()
-        }).then((data)=>{
+        const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/posts/${id}`).then(ele=>ele.json()).then(data=>{
             setOldTitle(data.title)
             setOldBody(data.body)
         })
@@ -91,14 +81,9 @@ const AddPost=(props)=>{
             body:body,
             
         })
-    }).catch((err)=>{
-        console.log(err)
-    }).then((data)=>{
-        
-        return data.json()
-    }).then(()=>{
-        return window.location.href="https://lgym-blog.vercel.app/blog"
-    })
+    }).catch(err=>console.log(err))
+      .then(data=>data.json())
+      .then(()=>window.location.href="https://lgym-blog.vercel.app/blog")
    }
    
    useEffect(()=>{
@@ -109,7 +94,7 @@ const AddPost=(props)=>{
     
    },[])
    if(props.type==='add'){
-    if(admin===true){
+    if(admin)
         return(
             <form onSubmit={addPost} >
                 <label htmlFor="title">Title:</label>
@@ -123,14 +108,14 @@ const AddPost=(props)=>{
             </form>
             
         )
-       }else{
+       else
         return(
             <p>No permissions</p>
         )
-       }
+       
        
    }else if(props.type==="edit"){
-    if(admin===true){
+    if(admin)
         return(
             <form onSubmit={editPost}>
                 <label htmlFor="title">Title:</label>
@@ -141,11 +126,11 @@ const AddPost=(props)=>{
                 <button>Edit Post</button>
             </form>
         )
-       }else{
+       else
         return(
             <p>No permissions</p>
         )
-       }
+       
    }
   
     

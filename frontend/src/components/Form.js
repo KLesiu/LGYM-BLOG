@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 
 
@@ -10,9 +9,9 @@ const Form=(props)=>{
         let name = document.querySelector("#registerName").value
         let pass = document.querySelector("#registerPass").value
         let cpass = document.querySelector("#registerCPass").value
-        if(pass !== cpass){
-            return setErrors("Passwords arent the same!")
-        }
+        if(pass !== cpass) return setErrors("Passwords arent the same!")
+            
+        
        const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/auth/register`,{
         method:"POST",
         headers:{
@@ -28,13 +27,9 @@ const Form=(props)=>{
         setErrors([])
         return window.location.href= "/login"
        }else{
-        if(name || pass || cpass===""){
-            return setErrors("All fields are required")
-        }else{
-            return setErrors('We have a user with this username!')
+        if(name || pass || cpass==="") return setErrors("All fields are required")
+        else return setErrors('We have a user with this username!')
         }
-        
-       }
     }
     const login=async(event)=>{
         event.preventDefault();
@@ -59,19 +54,13 @@ const Form=(props)=>{
             localStorage.setItem("token",token)
             localStorage.setItem('id',data.req._id)
             return 'authorized'
-           }).catch(function(err){
-            return console.log(err)
-           })
-           if(response==='authorized'){
-           
-           return window.location.href="/blog"
-           }
-
-        
-    }
+           }).catch(err=> console.log(err)
+           )
+           if(response==='authorized') return window.location.href="/blog"
+        }
     
   
-    if(props.type==='register'){
+    if(props.type==='register')
         return(
             <form onSubmit={register}>
                 <label htmlFor="name">Username:</label>
@@ -84,8 +73,8 @@ const Form=(props)=>{
                 <p id="registerErrors">{errors}</p>
             </form>
         )
-    }
-    else if(props.type==="admin"){
+    
+    else if(props.type==="admin")
         return(
             <form onSubmit={login} onSubmitCapture={props.getUsername}>
             <label htmlFor="name">Username:</label>
@@ -95,8 +84,8 @@ const Form=(props)=>{
             <button>LOGIN</button>
         </form>
         )
-    }
-    else{
+    
+    else
         return(
             <form onSubmit={login} onSubmitCapture={props.getUsername}>
             <label htmlFor="name">Username:</label>
@@ -106,7 +95,7 @@ const Form=(props)=>{
             <button>LOGIN</button>
         </form>
         )
-    }
+    
    
 }
 export default Form

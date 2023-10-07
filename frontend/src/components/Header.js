@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
-const Header=(props)=>{
+const Header=()=>{
     const [username,setUsername]= useState('')
     const [admin,setAdmin] =useState('')
 
@@ -13,8 +12,6 @@ const Header=(props)=>{
         document.querySelector('.logoutDiv').classList.add("hidden")
         
         window.location.href="https://lgym-blog.vercel.app/login"
-        
-        
     }
     const isAdmin=async()=>{
        
@@ -28,10 +25,9 @@ const Header=(props)=>{
                 body:JSON.stringify({
                     _id:id 
                 })
-            }).then(function(res){
-                
-                return res.json()
-            }).catch(err=>err).then(function(res){
+            }).then(res=> res.json())
+              .catch(err=>err)
+              .then(res=>{
                 const admin = res.admin
                 setAdmin(admin)
                 return admin
@@ -40,9 +36,8 @@ const Header=(props)=>{
            
             
     }
-    const hrefToAddPost=()=>{
-        window.location.href="https://lgym-blog.vercel.app/admin/add-post"
-    }
+    const hrefToAddPost=()=> window.location.href="https://lgym-blog.vercel.app/admin/add-post"
+    
    
     useEffect(()=>{
         if(localStorage.getItem('username')){
@@ -60,7 +55,7 @@ const Header=(props)=>{
         }
         isAdmin()
     },[])
-    if(admin===true){
+    if(admin)
         return(
             <header>
                 <h1><a href="/blog">LGYM BLOG</a></h1>
@@ -75,7 +70,7 @@ const Header=(props)=>{
             </header>
         ) 
         
-    }else{
+    else
         return(
             <header>
                 <h1><a href="/blog">LGYM BLOG</a></h1>
@@ -89,7 +84,7 @@ const Header=(props)=>{
     
             </header>
         ) 
-    }
+    
     
 }
 export default Header
